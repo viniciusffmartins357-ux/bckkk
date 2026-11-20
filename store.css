@@ -539,19 +539,23 @@ body{background:#fff;color:#171717}
 @media(max-width:520px){.sale-toast{left:12px;bottom:12px;padding:12px;width:calc(100vw - 24px)}}
 @media(prefers-reduced-motion:reduce){.sale-toast{transition:none}}
 
-/* Pop-up promocional das coleções — visual de vitrine de loja */
-.promo-toast{position:fixed;z-index:125;left:22px;bottom:22px;display:grid;grid-template-columns:104px minmax(0,1fr);gap:0;width:min(390px,calc(100vw - 28px));min-height:156px;overflow:hidden;border:1px solid rgba(194,153,70,.55);border-radius:15px;background:#171717;color:#fff;box-shadow:0 16px 44px rgba(0,0,0,.32);opacity:0;transform:translateY(18px) scale(.98);pointer-events:none;transition:opacity .28s ease,transform .28s ease}
+/* Pop-up promocional BCK — botões em destaque e fotos ajustadas ao quadro */
+.promo-toast{position:fixed;z-index:125;right:24px;bottom:24px;display:grid;grid-template-columns:142px minmax(0,1fr);width:min(470px,calc(100vw - 32px));min-height:206px;overflow:hidden;border:1px solid rgba(244,201,40,.72);border-radius:18px;background:linear-gradient(135deg,#20201e 0%,#101010 100%);color:#fff;box-shadow:0 20px 58px rgba(0,0,0,.38),0 0 0 1px rgba(244,201,40,.08);opacity:0;transform:translateY(18px) scale(.97);pointer-events:none;transition:opacity .3s ease,transform .3s ease}
 .promo-toast.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
-.promo-photo{width:104px;height:100%;min-height:156px;object-fit:cover;background:#282828}
-.promo-info{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:13px 15px 13px 14px;min-width:0}
-.promo-kicker{color:#d7b36b;font-size:9px;font-weight:900;letter-spacing:.16em}
-.promo-title{margin-top:3px;font-size:18px;line-height:1.1;font-weight:850;letter-spacing:-.02em}
-.promo-note{margin-top:3px;color:#c9c9c9;font-size:11px}
-.promo-prices{display:flex;align-items:baseline;gap:9px;margin-top:8px}
-.promo-old{color:#a6a6a6;font-size:11px}
-.promo-price{color:#f1c66e;font-size:23px;line-height:1;font-weight:900;letter-spacing:-.03em}
-.promo-link{display:inline-flex;align-items:center;gap:7px;margin-top:9px;padding:7px 11px;border-radius:6px;background:#d5ad60;color:#171717;font-size:10px;font-weight:900;letter-spacing:.07em;text-decoration:none}
-.promo-link:hover{background:#f0cf88}
-.promo-close{position:absolute;z-index:2;top:6px;right:8px;width:25px;height:25px;border:0;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:20px;line-height:1;cursor:pointer}
-@media(max-width:520px){.promo-toast{left:12px;bottom:12px;width:calc(100vw - 24px);grid-template-columns:88px minmax(0,1fr);min-height:142px}.promo-photo{width:88px;min-height:142px}.promo-info{padding:11px 12px}.promo-title{font-size:16px}.promo-price{font-size:21px}.promo-link{margin-top:7px}}
-@media(prefers-reduced-motion:reduce){.promo-toast{transition:none}}
+.promo-photo-wrap{display:flex;align-items:center;justify-content:center;min-width:0;min-height:206px;padding:10px;background:linear-gradient(145deg,#35342e,#171717);border-right:1px solid rgba(255,255,255,.09)}
+.promo-photo{display:block;width:100%;height:184px;max-width:122px;object-fit:contain;object-position:center center;border-radius:9px;background:#f4f3ee}
+.promo-info{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;padding:17px 18px 16px}
+.promo-kicker{color:#f4c928;font-size:9px;font-weight:900;letter-spacing:.15em}
+.promo-title{margin-top:5px;font-size:23px;line-height:1.05;font-weight:900;letter-spacing:-.025em}
+.promo-note{margin-top:5px;color:#d0d0ca;font-size:12px}
+.promo-prices{display:flex;align-items:baseline;flex-wrap:wrap;gap:9px;margin-top:10px}
+.promo-old{color:#aaa;font-size:12px}
+.promo-price{color:#ffdc55;font-size:29px;line-height:1;font-weight:950;letter-spacing:-.04em}
+.promo-link{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:44px;margin-top:13px;padding:11px 13px;border:1px solid #ffe17a;border-radius:8px;background:linear-gradient(110deg,#ffe36a 0%,#f2bd25 52%,#e9a900 100%);color:#171717;font-size:11px;font-weight:950;letter-spacing:.045em;text-align:center;text-decoration:none;box-shadow:0 5px 16px rgba(244,201,40,.24);transition:transform .18s ease,filter .18s ease,box-shadow .18s ease}
+.promo-link span{font-size:19px;line-height:12px;transition:transform .18s ease}
+.promo-link:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 8px 22px rgba(244,201,40,.34)}
+.promo-link:hover span{transform:translateX(3px)}
+.promo-close{position:absolute;z-index:3;top:8px;right:8px;display:grid;place-items:center;width:29px;height:29px;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:rgba(0,0,0,.72);color:#fff;font-size:21px;line-height:1;cursor:pointer}
+.promo-close:hover{background:#f4c928;color:#171717}
+@media(max-width:520px){.promo-toast{right:12px;bottom:12px;grid-template-columns:104px minmax(0,1fr);width:calc(100vw - 24px);min-height:174px;border-radius:14px}.promo-photo-wrap{min-height:174px;padding:7px}.promo-photo{height:158px;max-width:90px}.promo-info{padding:13px 12px}.promo-kicker{font-size:8px;letter-spacing:.11em}.promo-title{font-size:19px}.promo-note{font-size:11px}.promo-prices{gap:7px;margin-top:8px}.promo-old{font-size:10px}.promo-price{font-size:24px}.promo-link{min-height:42px;margin-top:10px;padding:9px 8px;font-size:9px;gap:6px}.promo-close{top:6px;right:6px;width:26px;height:26px}}
+@media(prefers-reduced-motion:reduce){.promo-toast,.promo-link,.promo-link span{transition:none}}
