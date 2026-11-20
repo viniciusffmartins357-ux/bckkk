@@ -527,3 +527,14 @@ body{background:#fff;color:#171717}
  .ck .sm{padding:16px}
  .ck .btn-pay{height:55px;font-size:16px}
 }
+
+/* Aviso discreto de compra real — aparece apenas após pagamento aprovado */
+.sale-toast{position:fixed;z-index:120;left:22px;bottom:22px;display:flex;align-items:center;gap:12px;width:min(360px,calc(100vw - 28px));padding:14px 15px;border:1px solid #e8e5d9;border-radius:13px;background:#fff;color:#171717;box-shadow:0 12px 38px rgba(0,0,0,.17);opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+.sale-toast.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.sale-check{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:#eaf5ed;color:#247644;font-size:20px;font-weight:900}
+.sale-toast b,.sale-toast small{display:block}
+.sale-toast b{font-size:13px;line-height:1.3}
+.sale-toast small{margin-top:3px;color:#696969;font-size:12px;line-height:1.4}
+.sale-toast button{align-self:flex-start;margin-left:auto;border:0;background:transparent;color:#777;font-size:22px;line-height:1;cursor:pointer}
+@media(max-width:520px){.sale-toast{left:12px;bottom:12px;padding:12px;width:calc(100vw - 24px)}}
+@media(prefers-reduced-motion:reduce){.sale-toast{transition:none}}
