@@ -154,37 +154,7 @@ function reviewMedia(root, list) {
 const chips = (sel, href) => `<div class="chips">${[["", "Todas"], ["Agro", "Agro"], ["Pesca", "Pesca"], ["Católica", "Católica"]].map(([c, t]) => `<a href="${href(c)}" data-c="${c}" class="${sel === c ? "on" : ""}">${t}</a>`).join("")}</div>`;
 const COLS = [["Agro", "Coleção Agro", "Para quem vive o campo de sol a sol.", "af"], ["Pesca", "Coleção Pesca", "Leve, seca rápido e protege na beira d'água.", "tf"], ["Católica", "Coleção Católica", "Fé estampada com proteção UV 50+.", "jf"]];
 function salesPopup() {
-  const offers = [
-    { cat: "Agro", old: "R$ 79,90", price: "R$ 29,95", image: "/img/af.jpg", href: "/loja?cat=Agro", note: "Para quem vive o campo." },
-    { cat: "Pesca", old: "R$ 69,90", price: "R$ 25,97", image: "/img/tf.jpg", href: "/loja?cat=Pesca", note: "Sua paixão acompanha você." },
-    { cat: "Religiosa", old: "R$ 99,90", price: "R$ 38,96", image: "/img/jf.jpg", href: "/loja?cat=Católica", note: "Vista sua fé com estilo." }
-  ];
-  let index = 0;
-  let box;
-  const show = () => {
-    if (!box) {
-      document.body.insertAdjacentHTML("beforeend", `<aside class="promo-toast" id="bck-promo-toast" aria-label="Oferta especial BCK BRAZIL"><button class="promo-close" type="button" aria-label="Fechar oferta">×</button><div class="promo-photo-wrap"><img class="promo-photo" alt="Coleção BCK BRAZIL"></div><div class="promo-info"><span class="promo-kicker">OFERTA ESPECIAL BCK BRAZIL</span><b class="promo-title"></b><span class="promo-note"></span><div class="promo-prices"><s class="promo-old"></s><strong class="promo-price"></strong></div><a class="promo-link">ESCOLHER MINHA CAMISETA <span>→</span></a></div></aside>`);
-      box = $("#bck-promo-toast");
-      $(".promo-close", box).onclick = () => { box.classList.remove("show"); salesPopup.closed = true; };
-    }
-    if (salesPopup.closed) return;
-    const offer = offers[index % offers.length];
-    $(".promo-photo", box).src = offer.image;
-    $(".promo-photo", box).alt = `Camisetas da coleção ${offer.cat}`;
-    $(".promo-title", box).textContent = `Coleção ${offer.cat}`;
-    $(".promo-note", box).textContent = offer.note;
-    $(".promo-old", box).textContent = `De ${offer.old}`;
-    $(".promo-price", box).textContent = `Por ${offer.price}`;
-    $(".promo-link", box).href = offer.href;
-    box.classList.remove("show");
-    requestAnimationFrame(() => box.classList.add("show"));
-    clearTimeout(salesPopup.hideTimer);
-    salesPopup.hideTimer = setTimeout(() => box.classList.remove("show"), 9000);
-    index++;
-  };
-  salesPopup.closed = false;
-  setTimeout(show, 4500);
-  salesPopup.cycle = setInterval(show, 15000);
+  // Pop-ups promocionais desativados a pedido do responsável pela loja.
 }
 function home() {
   const all = CAT.slice().sort((a, b) => (b.tag === "Mais vendida") - (a.tag === "Mais vendida") || off(b) - off(a));
