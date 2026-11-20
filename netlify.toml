@@ -1,0 +1,90 @@
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/loja"
+  to = "/loja.html"
+  status = 200
+
+[[redirects]]
+  from = "/produto"
+  to = "/produto.html"
+  status = 200
+
+[[redirects]]
+  from = "/checkout"
+  to = "/checkout.html"
+  status = 200
+
+[[redirects]]
+  from = "/rastreio"
+  to = "/rastreio.html"
+  status = 200
+
+# Links antigos de "Acompanhar pedido" continuam funcionando
+[[redirects]]
+  from = "/pedido"
+  to = "/rastreio"
+  status = 301
+
+[[redirects]]
+  from = "/pedido.html"
+  to = "/rastreio"
+  status = 301
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+[[redirects]]
+  from = "/personalizadas"
+  to = "/personalizadas.html"
+  status = 200
+
+[[redirects]]
+  from = "/sobre"
+  to = "/sobre.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/trocas-e-devolucoes"
+  to = "/trocas-e-devolucoes.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacidade"
+  to = "/privacidade.html"
+  status = 200
+
+[[redirects]]
+  from = "/termos"
+  to = "/termos.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/admin*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"

@@ -1,0 +1,132 @@
+[
+ {
+  "id": 1,
+  "name": "Safra Forte UV 50+",
+  "cat": "Agro",
+  "price": 39.9,
+  "old": 99.9,
+  "img": "s",
+  "tag": "Mais vendida",
+  "desc": "Manga longa preta com estampa total de gado nelore, trator e lavoura de soja ao pôr do sol. Logo AGRO no peito, bandeira do Brasil na manga e espigas douradas. Proteção UV 50+."
+ },
+ {
+  "id": 2,
+  "name": "Pecuária Pro",
+  "cat": "Agro",
+  "price": 39.9,
+  "old": 99.9,
+  "img": "c",
+  "tag": "Novo",
+  "desc": "Manga longa preta com estampa total do peão descansando entre o gado ao entardecer. Frase \"Agro é o que nos move\" nas costas e \"Agro é vida\" na manga, em dourado. Proteção UV 50+."
+ },
+ {
+  "id": 5,
+  "name": "Tucunaré Extreme",
+  "cat": "Pesca",
+  "price": 68.9,
+  "old": 119.9,
+  "img": "t",
+  "tag": "Destaque",
+  "desc": "Gola com zíper e estampa de tucunaré saltando da água sobre fundo verde com respingos. Detalhes em verde-limão nas mangas. Proteção UV 50+."
+ },
+ {
+  "id": 6,
+  "name": "Dourado Pantanal",
+  "cat": "Pesca",
+  "price": 68.9,
+  "old": 119.9,
+  "img": "d",
+  "tag": "Novo",
+  "desc": "Preta com dourado em fúria e respingos em laranja e dourado. Ombros e mangas com detalhes laranja e gola com zíper. Proteção UV 50+."
+ },
+ {
+  "id": 7,
+  "name": "Pesca Oceânica",
+  "cat": "Pesca",
+  "price": 68.9,
+  "old": 119.9,
+  "img": "o",
+  "tag": null,
+  "desc": "Estampa azul e branca com robalo saltando entre as ondas. Mangas com textura de escamas e gola com zíper. Proteção UV 50+."
+ },
+ {
+  "id": 8,
+  "name": "Anzol Black",
+  "cat": "Pesca",
+  "price": 68.9,
+  "old": 119.9,
+  "img": "x",
+  "tag": null,
+  "desc": "Preta com raios em azul elétrico e peixe dourado saltando. Visual esportivo, gola com zíper e proteção UV 50+."
+ },
+ {
+  "id": 9,
+  "name": "São Bento Ora et Labora",
+  "cat": "Católica",
+  "price": 30.9,
+  "old": 89.9,
+  "img": "b",
+  "tag": "Novo",
+  "desc": "Manga longa UV 50+ com estampa total, medalha de São Bento e frase nas costas."
+ },
+ {
+  "id": 10,
+  "name": "São José Rogai por Nós",
+  "cat": "Católica",
+  "price": 30.9,
+  "old": 89.9,
+  "img": "j",
+  "tag": "Destaque",
+  "desc": "Estampa total de São José com o Menino Jesus e terço nas mangas. Proteção UV 50+."
+ },
+ {
+  "id": 11,
+  "name": "Nossa Senhora",
+  "cat": "Católica",
+  "price": 30.9,
+  "old": 89.9,
+  "img": "m",
+  "tag": null,
+  "desc": "Com Maria, sempre é possível. Estampa total, manga longa e proteção UV 50+."
+ },
+ {
+  "id": 12,
+  "name": "Agro é Vida",
+  "cat": "Agro",
+  "price": 39.9,
+  "old": 99.9,
+  "img": "a",
+  "tag": "Novo",
+  "desc": "Manga longa UV 50+ com estampa total de gado e galinhas. Visual premium para o campo."
+ },
+ {
+  "id": 13,
+  "name": "Vaquejada Tradição",
+  "cat": "Agro",
+  "price": 39.9,
+  "old": 99.9,
+  "img": "v",
+  "tag": "Destaque",
+  "desc": "Estampa total de vaquejada com detalhes nas mangas. Tradição que passa de geração."
+ },
+ {
+  "id": 14,
+  "name": "Polo Agro Move o Brasil",
+  "cat": "Agro",
+  "price": 39.9,
+  "old": 99.9,
+  "img": "p",
+  "tag": "Lançamento",
+  "desc": "Polo manga longa com detalhes verdes, bandeira do Brasil e proteção UV 50+."
+ },
+ {
+  "id": 15,
+  "name": "Zíper Leiteira",
+  "cat": "Agro",
+  "price": 39.9,
+  "old": 99.9,
+  "img": "z",
+  "tag": "Novo",
+  "desc": "Gola alta com zíper e estampa de pastagem ao pôr do sol. Proteção UV 50+."
+ }
+]

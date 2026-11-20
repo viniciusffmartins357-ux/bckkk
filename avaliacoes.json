@@ -1,0 +1,75 @@
+[
+  {
+    "autorizado": true,
+    "nome": "Claudir Fernandes",
+    "foto": "/img/av/claudir.jpg",
+    "estrelas": 5,
+    "data": "2026-11-04 10:31",
+    "variacao": "Agro Cinza, G",
+    "texto": "Chegou muito rápido e bem embalado. Blusa muito linda, a estampa é do jeito que aparece nas fotos e a costura é bem feita. Recomendo!",
+    "midia": [
+      {
+        "tipo": "video",
+        "src": "/img/av/claudir-video.mp4",
+        "capa": "/img/av/claudir-video.jpg",
+        "mini": "/img/av/claudir-video-mini.jpg",
+        "duracao": "0:15"
+      },
+      {
+        "tipo": "foto",
+        "src": "/img/av/claudir-1.jpg",
+        "mini": "/img/av/claudir-1-mini.jpg"
+      },
+      {
+        "tipo": "foto",
+        "src": "/img/av/claudir-2.jpg",
+        "mini": "/img/av/claudir-2-mini.jpg"
+      }
+    ]
+  },
+  {
+    "autorizado": true,
+    "nome": "Roberto",
+    "foto": "/img/av/roberto.jpg",
+    "estrelas": 5,
+    "variacao": "Camisetas personalizadas",
+    "texto": "Obrigado pelas camisetas! Acabou de chegar! Qualidade top demais! A comitiva aprovou! 👏👏",
+    "midia": [
+      {
+        "tipo": "foto",
+        "src": "/img/av/roberto-whatsapp.jpg",
+        "mini": "/img/av/roberto-1-mini.jpg"
+      }
+    ]
+  },
+  {
+    "autorizado": true,
+    "nome": "Comitiva Amizade",
+    "foto": "/img/av/comitiva-amizade.jpg",
+    "estrelas": 5,
+    "variacao": "Camisetas personalizadas",
+    "texto": "As camisetas chegaram aqui! Qualidade top demais! Todo mundo aqui amou. Valeu demais! Pode contar com a gente sempre! 👏",
+    "midia": [
+      {
+        "tipo": "foto",
+        "src": "/img/av/comitiva-amizade-whatsapp.jpg",
+        "mini": "/img/av/comitiva-amizade-1-mini.jpg"
+      }
+    ]
+  },
+  {
+    "autorizado": true,
+    "nome": "Carlos",
+    "foto": "/img/av/carlos.jpg",
+    "estrelas": 5,
+    "variacao": "Camisetas personalizadas",
+    "texto": "As camisetas chegaram aqui! Qualidade excelente, podem contar comigo sempre! Já vou indicar pra galera aqui da fazenda. 👍",
+    "midia": [
+      {
+        "tipo": "foto",
+        "src": "/img/av/carlos-whatsapp.jpg",
+        "mini": "/img/av/carlos-1-mini.jpg"
+      }
+    ]
+  }
+]
