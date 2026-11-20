@@ -400,3 +400,60 @@ body{background:#fff;color:#171717}
 @media(prefers-reduced-motion:reduce){
  .card,.pzc{transition:none}
 }
+
+
+/* BCK BRAZIL — vitrine renovada e enquadramento consistente das fotos */
+.hero{background:radial-gradient(ellipse at 78% 45%,rgba(255,210,31,.16),transparent 38%),linear-gradient(120deg,#080808 0%,#171717 58%,#080808 100%)}
+.hero .slide .w{min-height:560px;grid-template-columns:1fr 1.05fr;gap:clamp(24px,4vw,64px);padding-top:36px;padding-bottom:42px}
+.hero-copy{max-width:590px}
+.hero .kick{display:inline-flex;align-items:center;gap:10px;letter-spacing:.15em}
+.hero .kick:before{content:"";width:28px;height:2px;background:var(--gold)}
+.hero .slide h2{font-size:clamp(3rem,6.4vw,5.6rem);line-height:.96;letter-spacing:-.025em;margin:18px 0}
+.hero .slide p{font-size:clamp(16px,1.6vw,19px);line-height:1.65;color:#d0d0ca;max-width:510px}
+.hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.hero-actions .btn{padding:15px 28px;min-height:50px}
+.hero-link{font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.45);padding:8px 0}
+.hero-link span{color:var(--gold);font-size:20px;margin-left:5px}
+.hero-proof{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:34px;color:#aaa;font-size:10px;font-weight:800;letter-spacing:.12em}
+.hero-proof i{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.hero .slide .pics{height:460px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+.hero .slide .pics figure{position:relative;min-width:0;height:100%;margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:linear-gradient(145deg,#292929,#101010);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.hero .slide .pics figure:nth-child(2){transform:translateY(24px)}
+.hero .slide .pics img{position:relative;inset:auto;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;padding:12px;border:0;border-radius:0;box-shadow:none;transform:none!important}
+.hero .slide .pics figcaption{position:absolute;left:12px;right:12px;bottom:12px;padding:9px 11px;border-radius:8px;background:rgba(0,0,0,.72);color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.13em;text-align:center;backdrop-filter:blur(8px)}
+.trust-strip{background:#fff;border-bottom:1px solid var(--line)}
+.trust-strip .w{display:grid;grid-template-columns:repeat(3,1fr);padding-top:18px;padding-bottom:18px}
+.trust-strip a{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 16px;border-left:1px solid var(--line)}
+.trust-strip a:first-child{border-left:0}
+.trust-icon{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:50%;background:#fff7d6;color:#111;font-size:23px;font-weight:800}
+.trust-strip b,.trust-strip small{display:block}
+.trust-strip b{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;font-size:17px;letter-spacing:.03em}
+.trust-strip small{font-size:12px;color:var(--mut)}
+/* Mantém as peças inteiras dentro dos quadros, sem cortes ou deformação */
+.cimg{aspect-ratio:4/5;background:linear-gradient(145deg,#f5f5f1,#e9e9e3)}
+.cimg img{object-fit:contain;object-position:center;padding:8px}
+.ct img{object-fit:contain;object-position:center;padding:8px;background:linear-gradient(145deg,#242424,#111)}
+.gal .mn{background:linear-gradient(145deg,#f5f5f1,#e9e9e3)}
+.gal .mn img,.gal .th img{object-fit:contain;object-position:center;padding:8px}
+.li img{object-fit:contain;object-position:center;background:#f2f2ed;padding:3px}
+.promo img{object-fit:contain;object-position:center;background:#111}
+.card .cimg .bk{padding:8px}
+.card:hover .cimg img{transform:scale(1.025)}
+@media(max-width:980px){
+ .hero .slide .w{grid-template-columns:1fr 1fr;gap:24px;min-height:500px}
+ .hero .slide .pics{height:390px}
+ .trust-strip .w{padding-left:8px;padding-right:8px}
+ .trust-strip a{padding:8px}
+}
+@media(max-width:720px){
+ .hero .slide .w{grid-template-columns:1fr;min-height:0;padding-top:34px;padding-bottom:48px;gap:20px}
+ .hero .slide h2{font-size:clamp(2.8rem,12vw,4.2rem);max-width:540px}
+ .hero .slide .pics{height:270px;order:0;gap:10px}
+ .hero .slide .pics figure:nth-child(2){transform:translateY(12px)}
+ .hero .slide .pics img{padding:6px}
+ .hero-proof{margin-top:22px}
+ .trust-strip .w{grid-template-columns:1fr;padding-top:8px;padding-bottom:8px}
+ .trust-strip a{justify-content:flex-start;border-left:0;border-top:1px solid var(--line);padding:11px 8px}
+ .trust-strip a:first-child{border-top:0}
+ .trust-strip b{font-size:16px}
+}
