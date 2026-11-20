@@ -10,6 +10,18 @@ const CFG = {
 const FR = {}; CFG.frete.forEach(([v, u, a, b]) => u.split(" ").forEach(x => (FR[x] = { v, a, b })));
 const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+// Fallback acessível: evita ícones de imagem quebrada quando fotos locais ainda não foram publicadas.
+document.addEventListener("error", event => {
+  const el = event.target;
+  if (el && el.tagName === "IMG" && /\\/img\\//.test(new URL(el.src, location.href).pathname) && !el.dataset.fallback) {
+    el.dataset.fallback = "1";
+    el.src = "/imagem-indisponivel.svg";
+    el.alt = el.alt ? el.alt + " — foto não disponível" : "Foto do produto não disponível";
+    el.classList.add("img-fallback");
+    const frame = el.closest(".cimg");
+    if (frame) frame.classList.add("no-back");
+  }
+}, true);
 const brl = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const wa = t => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
 const rd = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch { return d; } };
@@ -72,7 +84,7 @@ const badge = () => { const n = Cart.items().reduce((a, i) => a + i.q, 0); $$(".
 function toast(t) { const e = $(".toast"); e.textContent = t; e.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove("on"), 2200); }
 
 /* ---------- estrutura comum ---------- */
-const NAV = [["Agro", "/loja?cat=Agro"], ["Pesca", "/loja?cat=Pesca"], ["Católica", "/loja?cat=Católica"], ["Ofertas", "/loja?oferta=1"], ["Rastreio", "/rastreio"]];
+const NAV = [["Todas", "/loja"], ["Agro", "/loja?cat=Agro"], ["Pesca", "/loja?cat=Pesca"], ["Católica", "/loja?cat=Católica"], ["Ofertas", "/loja?oferta=1"], ["Rastreio", "/rastreio"]];
 function chrome() {
   const topMsg = "Frete grátis para todo o Brasil • 5% OFF no PIX";
   $("#hd").innerHTML = `<div class="top" id="tp">${topMsg}</div><header class="hd"><div class="row"><a class="logo" href="/"><img src="/img/logo.jpg" alt="BCK BRAZIL" width="48" height="48">BCK <b>BRAZIL</b></a>
