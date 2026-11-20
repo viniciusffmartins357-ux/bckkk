@@ -13,7 +13,7 @@ const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": 
 // Fallback acessível: evita ícones de imagem quebrada quando fotos locais ainda não foram publicadas.
 document.addEventListener("error", event => {
   const el = event.target;
-  if (el && el.tagName === "IMG" && /\\/img\\//.test(new URL(el.src, location.href).pathname) && !el.dataset.fallback) {
+  if (el && el.tagName === "IMG" && new URL(el.src, location.href).pathname.includes("/img/") && !el.dataset.fallback) {
     el.dataset.fallback = "1";
     el.src = "/imagem-indisponivel.svg";
     el.alt = el.alt ? el.alt + " — foto não disponível" : "Foto do produto não disponível";
