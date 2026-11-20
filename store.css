@@ -953,3 +953,24 @@ details.dt summary{color:#eee}
   border-radius:0!important;
 }
 #rvw .rv .rvi:last-child{border-bottom:0!important}
+
+
+/* Avaliações sem qualquer moldura clara */
+#rvw,
+#rvw > section,
+#rvw .sec,
+#rvw .sec > .w,
+#rvw .rv,
+#rvw .rvi,
+#rvw .rva,
+#rvw .rvt button,
+#rvw .rvv{
+  border:0!important;
+  outline:0!important;
+  box-shadow:none!important;
+}
+#rvw .rv{background:transparent!important;padding:0!important}
+#rvw .rvi{background:#111!important;border-radius:0!important}
+#rvw .rva{background:#1b1b1b!important}
+#rvw .rvt button{background:#1b1b1b!important}
+#rvw .rvv{background:#080808!important}
