@@ -538,3 +538,20 @@ body{background:#fff;color:#171717}
 .sale-toast button{align-self:flex-start;margin-left:auto;border:0;background:transparent;color:#777;font-size:22px;line-height:1;cursor:pointer}
 @media(max-width:520px){.sale-toast{left:12px;bottom:12px;padding:12px;width:calc(100vw - 24px)}}
 @media(prefers-reduced-motion:reduce){.sale-toast{transition:none}}
+
+/* Pop-up promocional das coleções — visual de vitrine de loja */
+.promo-toast{position:fixed;z-index:125;left:22px;bottom:22px;display:grid;grid-template-columns:104px minmax(0,1fr);gap:0;width:min(390px,calc(100vw - 28px));min-height:156px;overflow:hidden;border:1px solid rgba(194,153,70,.55);border-radius:15px;background:#171717;color:#fff;box-shadow:0 16px 44px rgba(0,0,0,.32);opacity:0;transform:translateY(18px) scale(.98);pointer-events:none;transition:opacity .28s ease,transform .28s ease}
+.promo-toast.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.promo-photo{width:104px;height:100%;min-height:156px;object-fit:cover;background:#282828}
+.promo-info{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:13px 15px 13px 14px;min-width:0}
+.promo-kicker{color:#d7b36b;font-size:9px;font-weight:900;letter-spacing:.16em}
+.promo-title{margin-top:3px;font-size:18px;line-height:1.1;font-weight:850;letter-spacing:-.02em}
+.promo-note{margin-top:3px;color:#c9c9c9;font-size:11px}
+.promo-prices{display:flex;align-items:baseline;gap:9px;margin-top:8px}
+.promo-old{color:#a6a6a6;font-size:11px}
+.promo-price{color:#f1c66e;font-size:23px;line-height:1;font-weight:900;letter-spacing:-.03em}
+.promo-link{display:inline-flex;align-items:center;gap:7px;margin-top:9px;padding:7px 11px;border-radius:6px;background:#d5ad60;color:#171717;font-size:10px;font-weight:900;letter-spacing:.07em;text-decoration:none}
+.promo-link:hover{background:#f0cf88}
+.promo-close{position:absolute;z-index:2;top:6px;right:8px;width:25px;height:25px;border:0;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+@media(max-width:520px){.promo-toast{left:12px;bottom:12px;width:calc(100vw - 24px);grid-template-columns:88px minmax(0,1fr);min-height:142px}.promo-photo{width:88px;min-height:142px}.promo-info{padding:11px 12px}.promo-title{font-size:16px}.promo-price{font-size:21px}.promo-link{margin-top:7px}}
+@media(prefers-reduced-motion:reduce){.promo-toast{transition:none}}
