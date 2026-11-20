@@ -908,3 +908,26 @@ details.dt summary{color:#eee}
  .hero .slide .pics img,.hero .slide .pics figure img{padding:5px!important}
  .hero .slide .pics figcaption{left:6px!important;right:6px!important;bottom:6px!important;font-size:9px!important;padding:7px 4px!important}
 }
+
+
+/* Avaliações: remover fundo e contorno claros no tema escuro */
+.rv{
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding:4px 0!important;
+}
+.rv .rvi,
+.rv .rvi:last-child{
+  background:#111!important;
+  color:#eee!important;
+  border:0!important;
+  border-bottom:1px solid #292929!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+.rv .rvi:last-child{border-bottom:0!important}
+.rv .rva{border:1px solid #333!important}
+.rv .rvz{background:#1b1b1b!important;color:#ddd!important}
+.rv .rvi p{color:#ccc!important}
+.rv .rvd,.rv .rvu{color:#aaa!important}
