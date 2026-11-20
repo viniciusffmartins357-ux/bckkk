@@ -154,36 +154,37 @@ function reviewMedia(root, list) {
 const chips = (sel, href) => `<div class="chips">${[["", "Todas"], ["Agro", "Agro"], ["Pesca", "Pesca"], ["Católica", "Católica"]].map(([c, t]) => `<a href="${href(c)}" data-c="${c}" class="${sel === c ? "on" : ""}">${t}</a>`).join("")}</div>`;
 const COLS = [["Agro", "Coleção Agro", "Para quem vive o campo de sol a sol.", "af"], ["Pesca", "Coleção Pesca", "Leve, seca rápido e protege na beira d'água.", "tf"], ["Católica", "Coleção Católica", "Fé estampada com proteção UV 50+.", "jf"]];
 function salesPopup() {
-  let lastShown = "";
-  const check = async () => {
-    try {
-      const r = await fetch("/.netlify/functions/recent-sales", { cache: "no-store" });
-      if (!r.ok) return;
-      const data = await r.json();
-      const sale = Array.isArray(data.sales) ? data.sales[0] : null;
-      if (!sale || !sale.paidAt || sale.paidAt === lastShown) return;
-      const paid = new Date(sale.paidAt).getTime();
-      if (!Number.isFinite(paid)) return;
-      const minutes = Math.max(1, Math.floor((Date.now() - paid) / 60000));
-      const when = minutes < 60 ? `há ${minutes} min` : minutes < 1440 ? `há ${Math.floor(minutes / 60)} h` : `há ${Math.floor(minutes / 1440)} dia(s)`;
-      let box = $("#bck-sale-toast");
-      if (!box) {
-        document.body.insertAdjacentHTML("beforeend", `<aside class="sale-toast" id="bck-sale-toast" role="status" aria-live="polite"><span class="sale-check">✓</span><span><b>Compra confirmada!</b><small>Uma camiseta BCK BRAZIL foi comprada ${when}.</small></span><button type="button" aria-label="Fechar aviso">×</button></aside>`);
-        box = $("#bck-sale-toast");
-        $("button", box).onclick = () => box.classList.remove("show");
-      } else {
-        $("small", box).textContent = `Uma camiseta BCK BRAZIL foi comprada ${when}.`;
-      }
-      lastShown = sale.paidAt;
-      box.classList.add("show");
-      clearTimeout(salesPopup.hideTimer);
-      salesPopup.hideTimer = setTimeout(() => box.classList.remove("show"), 6500);
-    } catch { /* O aviso é opcional; a loja continua funcionando sem ele. */ }
+  const offers = [
+    { cat: "Agro", old: "R$ 79,90", price: "R$ 29,95", image: "/img/af.jpg", href: "/loja?cat=Agro", note: "Para quem vive o campo." },
+    { cat: "Pesca", old: "R$ 69,90", price: "R$ 25,97", image: "/img/tf.jpg", href: "/loja?cat=Pesca", note: "Sua paixão acompanha você." },
+    { cat: "Religiosa", old: "R$ 99,90", price: "R$ 38,96", image: "/img/jf.jpg", href: "/loja?cat=Católica", note: "Vista sua fé com estilo." }
+  ];
+  let index = 0;
+  let box;
+  const show = () => {
+    if (!box) {
+      document.body.insertAdjacentHTML("beforeend", `<aside class="promo-toast" id="bck-promo-toast" aria-label="Oferta especial BCK BRAZIL"><button class="promo-close" type="button" aria-label="Fechar oferta">×</button><img class="promo-photo" alt="Coleção BCK BRAZIL"><div class="promo-info"><span class="promo-kicker">OFERTA ESPECIAL</span><b class="promo-title"></b><span class="promo-note"></span><div class="promo-prices"><s class="promo-old"></s><strong class="promo-price"></strong></div><a class="promo-link">VER COLEÇÃO <span>→</span></a></div></aside>`);
+      box = $("#bck-promo-toast");
+      $(".promo-close", box).onclick = () => { box.classList.remove("show"); salesPopup.closed = true; };
+    }
+    if (salesPopup.closed) return;
+    const offer = offers[index % offers.length];
+    $(".promo-photo", box).src = offer.image;
+    $(".promo-photo", box).alt = `Camisetas da coleção ${offer.cat}`;
+    $(".promo-title", box).textContent = `Coleção ${offer.cat}`;
+    $(".promo-note", box).textContent = offer.note;
+    $(".promo-old", box).textContent = `De ${offer.old}`;
+    $(".promo-price", box).textContent = `Por ${offer.price}`;
+    $(".promo-link", box).href = offer.href;
+    box.classList.add("show");
+    clearTimeout(salesPopup.hideTimer);
+    salesPopup.hideTimer = setTimeout(() => box.classList.remove("show"), 7000);
+    index++;
   };
-  setTimeout(check, 5500);
-  salesPopup.poll = setInterval(check, 120000);
+  salesPopup.closed = false;
+  setTimeout(show, 4500);
+  salesPopup.cycle = setInterval(show, 13000);
 }
-
 function home() {
   const all = CAT.slice().sort((a, b) => (b.tag === "Mais vendida") - (a.tag === "Mais vendida") || off(b) - off(a));
   const maxOff = Math.max(0, ...CAT.map(off));
