@@ -163,7 +163,7 @@ function salesPopup() {
   let box;
   const show = () => {
     if (!box) {
-      document.body.insertAdjacentHTML("beforeend", `<aside class="promo-toast" id="bck-promo-toast" aria-label="Oferta especial BCK BRAZIL"><button class="promo-close" type="button" aria-label="Fechar oferta">×</button><img class="promo-photo" alt="Coleção BCK BRAZIL"><div class="promo-info"><span class="promo-kicker">OFERTA ESPECIAL</span><b class="promo-title"></b><span class="promo-note"></span><div class="promo-prices"><s class="promo-old"></s><strong class="promo-price"></strong></div><a class="promo-link">VER COLEÇÃO <span>→</span></a></div></aside>`);
+      document.body.insertAdjacentHTML("beforeend", `<aside class="promo-toast" id="bck-promo-toast" aria-label="Oferta especial BCK BRAZIL"><button class="promo-close" type="button" aria-label="Fechar oferta">×</button><div class="promo-photo-wrap"><img class="promo-photo" alt="Coleção BCK BRAZIL"></div><div class="promo-info"><span class="promo-kicker">OFERTA ESPECIAL BCK BRAZIL</span><b class="promo-title"></b><span class="promo-note"></span><div class="promo-prices"><s class="promo-old"></s><strong class="promo-price"></strong></div><a class="promo-link">ESCOLHER MINHA CAMISETA <span>→</span></a></div></aside>`);
       box = $("#bck-promo-toast");
       $(".promo-close", box).onclick = () => { box.classList.remove("show"); salesPopup.closed = true; };
     }
@@ -176,14 +176,15 @@ function salesPopup() {
     $(".promo-old", box).textContent = `De ${offer.old}`;
     $(".promo-price", box).textContent = `Por ${offer.price}`;
     $(".promo-link", box).href = offer.href;
-    box.classList.add("show");
+    box.classList.remove("show");
+    requestAnimationFrame(() => box.classList.add("show"));
     clearTimeout(salesPopup.hideTimer);
-    salesPopup.hideTimer = setTimeout(() => box.classList.remove("show"), 7000);
+    salesPopup.hideTimer = setTimeout(() => box.classList.remove("show"), 9000);
     index++;
   };
   salesPopup.closed = false;
   setTimeout(show, 4500);
-  salesPopup.cycle = setInterval(show, 13000);
+  salesPopup.cycle = setInterval(show, 15000);
 }
 function home() {
   const all = CAT.slice().sort((a, b) => (b.tag === "Mais vendida") - (a.tag === "Mais vendida") || off(b) - off(a));
