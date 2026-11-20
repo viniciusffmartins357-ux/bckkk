@@ -931,3 +931,25 @@ details.dt summary{color:#eee}
 .rv .rvz{background:#1b1b1b!important;color:#ddd!important}
 .rv .rvi p{color:#ccc!important}
 .rv .rvd,.rv .rvu{color:#aaa!important}
+
+
+/* Correção definitiva do contorno do bloco de avaliações */
+#rvw,
+#rvw .sec,
+#rvw .sec > .w,
+#rvw .rv,
+#rvw .rv .rvi{
+  outline:0!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+#rvw .rv{
+  background:transparent!important;
+  border-radius:0!important;
+}
+#rvw .rv .rvi{
+  background:#111!important;
+  border-bottom:1px solid #292929!important;
+  border-radius:0!important;
+}
+#rvw .rv .rvi:last-child{border-bottom:0!important}
