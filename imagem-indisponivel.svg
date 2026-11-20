@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-labelledby="t d">
+<title id="t">Foto do produto não disponível</title>
+<desc id="d">Espaço reservado para a fotografia original da camiseta BCK Brazil.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6f5ef"/><stop offset="1" stop-color="#e8e6dc"/></linearGradient></defs>
+<rect width="600" height="750" rx="24" fill="url(#bg)"/>
+<path d="M205 150l-94 54-55 119 91 43 34-63v265h232V303l34 63 91-43-55-119-94-54c-23 25-54 40-92 40s-69-15-92-40z" fill="#242424" stroke="#d8b32a" stroke-width="8" stroke-linejoin="round"/>
+<path d="M245 160c8 37 27 55 55 55s47-18 55-55" fill="none" stroke="#d8b32a" stroke-width="7"/>
+<text x="300" y="445" text-anchor="middle" fill="#f5d34b" font-family="Arial,sans-serif" font-size="45" font-weight="800" letter-spacing="4">BCK</text>
+<text x="300" y="490" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="3">BRAZIL</text>
+<text x="300" y="650" text-anchor="middle" fill="#56564f" font-family="Arial,sans-serif" font-size="20" font-weight="700">FOTO EM ATUALIZAÇÃO</text>
+</svg>
