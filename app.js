@@ -153,6 +153,37 @@ function reviewMedia(root, list) {
 /* ---------- páginas ---------- */
 const chips = (sel, href) => `<div class="chips">${[["", "Todas"], ["Agro", "Agro"], ["Pesca", "Pesca"], ["Católica", "Católica"]].map(([c, t]) => `<a href="${href(c)}" data-c="${c}" class="${sel === c ? "on" : ""}">${t}</a>`).join("")}</div>`;
 const COLS = [["Agro", "Coleção Agro", "Para quem vive o campo de sol a sol.", "af"], ["Pesca", "Coleção Pesca", "Leve, seca rápido e protege na beira d'água.", "tf"], ["Católica", "Coleção Católica", "Fé estampada com proteção UV 50+.", "jf"]];
+function salesPopup() {
+  let lastShown = "";
+  const check = async () => {
+    try {
+      const r = await fetch("/.netlify/functions/recent-sales", { cache: "no-store" });
+      if (!r.ok) return;
+      const data = await r.json();
+      const sale = Array.isArray(data.sales) ? data.sales[0] : null;
+      if (!sale || !sale.paidAt || sale.paidAt === lastShown) return;
+      const paid = new Date(sale.paidAt).getTime();
+      if (!Number.isFinite(paid)) return;
+      const minutes = Math.max(1, Math.floor((Date.now() - paid) / 60000));
+      const when = minutes < 60 ? `há ${minutes} min` : minutes < 1440 ? `há ${Math.floor(minutes / 60)} h` : `há ${Math.floor(minutes / 1440)} dia(s)`;
+      let box = $("#bck-sale-toast");
+      if (!box) {
+        document.body.insertAdjacentHTML("beforeend", `<aside class="sale-toast" id="bck-sale-toast" role="status" aria-live="polite"><span class="sale-check">✓</span><span><b>Compra confirmada!</b><small>Uma camiseta BCK BRAZIL foi comprada ${when}.</small></span><button type="button" aria-label="Fechar aviso">×</button></aside>`);
+        box = $("#bck-sale-toast");
+        $("button", box).onclick = () => box.classList.remove("show");
+      } else {
+        $("small", box).textContent = `Uma camiseta BCK BRAZIL foi comprada ${when}.`;
+      }
+      lastShown = sale.paidAt;
+      box.classList.add("show");
+      clearTimeout(salesPopup.hideTimer);
+      salesPopup.hideTimer = setTimeout(() => box.classList.remove("show"), 6500);
+    } catch { /* O aviso é opcional; a loja continua funcionando sem ele. */ }
+  };
+  setTimeout(check, 5500);
+  salesPopup.poll = setInterval(check, 120000);
+}
+
 function home() {
   const all = CAT.slice().sort((a, b) => (b.tag === "Mais vendida") - (a.tag === "Mais vendida") || off(b) - off(a));
   const maxOff = Math.max(0, ...CAT.map(off));
@@ -167,6 +198,7 @@ function home() {
   <ul class="pzl"><li><b>1.</b> Fale com a gente no WhatsApp</li><li><b>2.</b> Mande seu logo, nome ou ideia</li><li><b>3.</b> Receba a arte pronta para aprovar</li></ul>
   <a class="btn pzb" href="${wa("Olá! Quero fazer uma camiseta personalizada. Pode me ajudar a montar o modelo?")}" target="_blank" rel="noopener">Quero a minha personalizada no WhatsApp</a></div></section>
   <div id="rvw"></div>`;
+  salesPopup();
   fetch("/avaliacoes.json").then(r => r.json()).then(a => { a = (a || []).filter(x => x.autorizado === true).slice(0, 4); if (a.length) { $("#rvw").innerHTML = `<section class="sec"><div class="w">${head("Quem comprou, aprova")}<div class="rv">${a.map(review).join("")}</div></div></section>`; reviewMedia($("#rvw"), a); } }).catch(() => { });
 }
 function loja() {
